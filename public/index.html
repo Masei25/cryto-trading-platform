@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/tailwind.css">
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+		<title>Crypto</title>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-100">
+		<section>
+			<div class="relative">
+				<img src="img/bg-12.jpg" class="hidden md:block" alt="">
+				<img src="img/bg-4.jpg" class="md:hidden" alt="">
+
+				<div class="static inset-0">
+					<nav
+						id="nav" class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0 px-8 lg:px-16" x-data="{ isOpen: false }" @keydown.escape="isOpen = false" :class="{ 'shadow-lg bg-gray-100' : isOpen , '' : !isOpen}">
+						<!--Logo etc-->
+						<div class="flex items-center flex-shrink-0 text-white">
+							<a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+								<span class="text-lg font-bold pl-2">
+									<i class="em em-grinning"></i>
+									LOGO
+								</span>
+							</a>
+						</div>
+
+						<!--Toggle button (hidden on large screens)-->
+						<button @click="isOpen = !isOpen" type="button" class="block lg:hidden px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white" :class="{ 'transition transform-180': isOpen }">
+							<svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+								<path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+								<path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+							</svg>
+						</button>
+
+						<!--Menu-->
+						<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto pl-2" :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+
+							<div class="pt-5 lg:pt-0 list-reset lg:flex justify-end space-x-0 lg:space-x-7 space-y-3 lg:space-y-0 flex-1 items-center">
+								<p href="" class="uppercase text-sm font-medium text-gray-400 cursor-pointer">We Buy :
+									<span class="cursor-pointer  hover:text-gray-100">₦23,408,368.75</span>
+								</p>
+								<p href="" class="uppercase text-sm font-medium text-gray-400 cursor-pointer">We Sell:
+									<span class="cursor-pointer hover:text-gray-100">
+										₦22,408,368.75</span>
+								</p>
+							</div>
+
+							<ul class=" pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center space-y-3 lg:space-y-0">
+								<li class=" mr-3">
+									<a href="#about" class="inline-block uppercase border p-1 text-xs font-medium border-green-500 rounded text-green-600 hover:bg-green-500 hover:text-gray-100 duration-300 easy-in-out no-underline py-2 px-5" href="#" @click="isOpen = false">
+										About
+									</a>
+								</li>
+								<li class="mr-3">
+									<a href="#whyus" class="inline-block uppercase border p-1 text-xs font-medium border-green-500 rounded text-green-600 hover:bg-green-500 hover:text-gray-100 duration-300 easy-in-out no-underline py-2 px-5" href="#" @click="isOpen = false">
+										Why Use Us
+									</a>
+								</li>
+								<li class="mr-3">
+									<a href="#review" class="inline-block uppercase border p-1 text-xs font-medium border-green-500 rounded text-green-600 hover:bg-green-500 hover:text-gray-100 duration-300 easy-in-out no-underline py-2 px-5" href="#" @click="isOpen = false">
+										Reviews
+									</a>
+								</li>
+								<li class="mr-3">
+									<a href="#contact" class="inline-block uppercase border p-1 text-xs font-medium border-green-500 rounded text-green-600 hover:bg-green-500 hover:text-gray-100 duration-300 easy-in-out no-underline py-2 px-5" href="#" @click="isOpen = false">
+										Contact Us
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+
+				<div class="absolute inset-0 flex flex-col items-center mt-10 justify-center space-y-2 md:mt-5 lg:space-y-14">
+					<div class="lg:grid grid-cols-3">
+						<div class="col-span-2 md:p-20 items-center flex flex-col justify-center">
+							<div class="font-medium text-lg md:text-3xl text-gray-200 content-center">
+								<p>Have
+									<span class="text-green-500">Bitcoin</span>
+									or
+									<span class="text-green-500">Gift Cards</span>
+									For Sale?</p>
+								<p class="font-medium md:text-4xl text-gray-200 flex justify-center">Let's Do Business</p>
+								<p class="text-gray-100 font-medium text-xs lg:text-lg md:mt-3 flex justify-center">Instant Trading: Real-time & Automated Payments.</p>
+							</div>
+		
+							<div class="mt-3 md:mt-16 px-2 py-1 md:px-5 md:w-72 mx-auto md:py-3 text-white rounded-full flex items-center justify-center text-sm md:text-lg font-medium space-x-2 bg-green-500">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewbox="0 0 16 16">
+									<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+								</svg>
+								<a href="https://api.whatsapp.com/send?phone=12345688" target="_blank">Chat with us on WhatsApp</a>
+							</div>
+						</div>
+						<div class="relative -bottom-12 right-10">
+							<img src="img/illus.svg" class="hidden lg:block mx-auto " alt="">
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--About us section-->
+		<section id="about">
+			<div class="p-10 bg-white">
+				<h6 class="text-4xl flex">About US</h6>
+				<div class="md:grid grid-cols-2 gap-4 mt-10">
+					<div class="mt-4 text-justify">
+						<p class="mt-2 text-justify">We are a trusted online platform which provides the generally public to safely trade their gift cards for instant money.</p>
+						<p class="mt-2 text-justify">
+							The platform is open to evevryone and it accepts gift cards from all around the world; with all kinds of gift card currencies (such as USD, AUD, Euro, CAD, GPB, and others), and all denominations (such as $15, $50, $100, $200, and so on).
+						</p>
+					</div>
+					<div class="">
+						<img src="img/btc-22.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Why choose us-->
+		<section id="whyus">
+			<div class="flex justify-center flex-col p-5 md:p-10">
+				<p class="text-4xl font-base">Why Choose Us</p>
+				<div class="lg:grid grid-cols-3 gap-4 mt-10 space-y-4 lg:space-y-0">
+					<div class="bg-white p-2 rounded border-4 border-opacity-10 border-gray-500">
+						<div class="px-2 py-4">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-20" viewbox="0 0 16 16">
+								<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+							</svg>
+							<p class="p-2 font-medium">Safe And Secure</p>
+							<p class="p-2">Same Day Funding & Withdrawal into any Nigerian banks. All fees inclusive in the rate</p>
+						</div>
+					</div>
+					<div class="bg-white p-2 rounded border-4 border-opacity-10 border-gray-500">
+						<div class="px-2 py-4">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-20" viewbox="0 0 16 16">
+								<path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+							</svg>
+							<p class="p-2 font-medium">Fast Service</p>
+							<p class="p-2">Speed is key when you want to remit your money. You can expect to send your money within a matter of hours.</p>
+						</div>
+					</div>
+					<div class="bg-white p-2 rounded border-4 border-opacity-10 border-gray-500">
+						<div class="px-2 py-4">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-20" viewbox="0 0 16 16">
+								<path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+							</svg>
+							<p class="p-2 font-medium">Good Customer Service</p>
+							<p class="p-2">Your requests will be handled by well trained and experienced staff aiming to respond as soon as possible.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Client's review-->
+		<section id="review" class="relative">
+			<img src="img/r-1.jpg" class="hidden md:block w-full" alt="">
+			<img src="img/r-2.jpg" class="md:hidden w-full" alt="">
+			<div class="absolute inset-0  p-5 md:p-10">
+				<div class="content-center">
+					<div class="">
+						<p class="flex justify-center text-sm uppercase text-gray-400 font-medium opacity-50">Awesome Feedback</p>
+						<p class="flex justify-center md:mt-5 text-base md:text-2xl capitalize font-medium opacity-80">What our client's say</p>
+						<div class="max-w-lg m-auto mb-6">
+							<div class="slide flex items-center text-sm md:text-base content-center text-center justify-center md:mt-10 p-2 mb-2">
+								<p>
+									<span class="text-2xl">“</span>
+									opeyemi olatosi
+									view post
+									Good day, I had registered with Nairaex since 2016 and have transact with them I try it to night it was waoooo the transaction was successful from bot...
+									. That's why I've been trading with them for more than 3 years now! <span class="text-2xl">”</span>
+									<p class="text-sm text-gray-400">Olu Sammy</p>
+								</p>
+							</div>
+							<div class="slide flex items-center text-sm md:text-base content-center text-center justify-center md:mt-10 p-2 mb-2">
+								<p>
+									<span class="text-2xl">“</span> 
+									Emmanuel Hart view post
+									Swift buying and selling orders. the best ever.<span class="text-2xl">”</span>
+									<p class="text-sm text-gray-400">Jimoh</p>
+								</p>
+							</div>
+							<div class="slide flex items-center text-sm md:text-base content-center text-center justify-center md:mt-10 p-2 mb-2">
+								<p>
+									<span class="text-2xl">“</span>
+									opeyemi olatosi
+									view post
+									Good day, I had registered with Nairaex since 2016 and have transact with them I try it to night it was waoooo the transaction was successful from bot...
+									Swift buying and selling orders. the best ever. <span class="text-2xl">”</span>
+									<p class="text-sm text-gray-400">John Doe</p>
+								</p>
+							</div>
+						</div>
+
+						<!-- <div class="">
+							<a href="" title="Previous" class="prev absolute top-40 cursor-pointer p-2 w-auto font-bold b-2">&#10094</a>
+							<a href="" title="Next" class="next absolute top-40 right-0">&#10095</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--contact us-->
+		<section id="contact">
+			<div class="bg-gradient-to-l from-green-700">
+				<div class="relative content-center p-5 lg:mx-60">
+					<p class="flex justify-center text-white text-4xl font-base">Contact Us</p>
+					<p class="flex justify-center text-white mt-5 capitalize font-base text-center opacity-80">Need Information? Having Issues? Send us a message, we will respond to you as soon as possible.</p>
+					<div class="md:grid grid-cols-4 mt-5">
+						<div class="p-3 hidden md:block">
+							<p class="font-medium mb-2 text-white text-sm">Contact us for:</p>
+							<hr class="mb-2">
+							<p class="font-medium mb-2 text-white text-sm">Enquiries</p>
+							<p class="font-medium mb-2 text-white text-sm">Requests</p>
+							<p class="font-medium mb-2 text-white text-sm">Assistance</p>
+						</div>
+						<div class="col-span-3 lg:mx-10 p-2 space-y-3">
+							<div class="">
+								<label for="name" class="text-sm text-white font-medium">Full Name:</label>
+								<input type="text" name="name" class="w-full border rounded p-1 focus:border-blue-400 outline-none">
+							</div>
+							<div class="grid grid-cols-2 gap-4">
+								<div>
+									<label for="name" class="text-sm text-white font-medium">Email:</label>
+									<input type="text" name="email" class="w-full border rounded p-1 focus:border-blue-400 outline-none">
+								</div>
+								<div>
+									<label for="name" class="text-sm text-white font-medium">Phone:</label>
+									<input type="text" name="phone" class="w-full border rounded p-1 focus:border-blue-400 outline-none">
+								</div>
+							</div>
+							<div>
+								<label for="name" class="text-sm text-white font-medium">Message:</label>
+								<textarea name="message" id="message" cols="20" rows="5" class="w-full border rounded p-1 focus:border-blue-400 outline-none"></textarea>
+							</div>
+							<div class="flex justify-end">
+								<input type="submit" name="submit" class="cursor-pointer rounded text-white text-sm p-1 bg-pink-400 px-6 py-2">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="bg-gray-800">
+			<div class="">
+				<div class="md:grid grid-cols-5 p-10 md:mx-10">
+					<div class="mx-2 mb-5 md:mb-0 md:border-r">
+						<ul class="space-y-3">
+							<li class="text-gray-100 text-sm">
+								<a href="" class="flex item-center hover:text-yellow-200 space-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewbox="0 0 16 16">
+										<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+										<path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+									</svg>
+									<h1>About</h1>
+								</a>
+							</li>
+							<li class="text-gray-100 text-xs">
+								<a href="" class="flex item-center hover:text-yellow-200 space-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewbox="0 0 16 16">
+										<path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+									</svg>
+									<h1>Why Use Us</h1>
+								</a>
+							</li>
+							<li class="text-gray-100 text-sm">
+								<a href="" class="flex item-center space-x-2 hover:text-yellow-200">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewbox="0 0 16 16">
+										<path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+										<path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+									</svg>
+									<h1>Reviews</h1>
+								</a>
+							</li>
+							<li class="text-gray-100 text-sm">
+								<a href="" class="flex item-center hover:text-yellow-200 space-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewbox="0 0 16 16">
+										<path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+										<path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+									</svg>
+									<h1>Contact Us</h1>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-span-3 mb-3 md:mb-0 md:border-r">
+						<div class="flex space-x-4 mx-4">
+							<p class="text-white">LOGO</p>
+							<p class="text-white text-justify text-sm">
+								Fast, Easy, Safe platform to negotiate with the buyer and trade your gift cards for instant cash. All gift cards and gift card denominations and currencies are accepted.
+								<br>
+								Contact Us: 2347012345678, email@gmail.com
+								<br>
+								Proudly Powered By Aimtoget Technology.
+							</p>
+						</div>
+					</div>
+					<div class="flex justify-center">
+						<div class="flex space-x-5 ml-3 mx-2">
+							<a href="">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-yellow-200 hover:text-yellow-400" viewbox="0 0 16 16">
+									<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+								</svg>
+							</a>
+							<a href="">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-yellow-200 hover:text-yellow-400" viewbox="0 0 16 16">
+									<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+								</svg>
+							</a>
+							<a href="">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-yellow-200 hover:text-yellow-400" viewbox="0 0 16 16">
+									<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p class="flex justify-center text-gray-200 text-xs p-2">&copy 2021 - Aimtoget - All Rights Reserved</p>
+			</div>
+		</footer>
+
+		<script src="js/app.js"></script>
+	</body>
+</html>
