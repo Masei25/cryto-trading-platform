@@ -1,13 +1,12 @@
 module.exports = {
-  purge: {
-    content: ['/public/**/*.html']  
-  },
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      'display': ['Rubik']
+    extend: {
+      animation: {
+        bounce: 'bounce 5s linear'
+      }
     },
-    extend: {},
   },
   variants: {
     extend: {},
