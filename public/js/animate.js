@@ -13,6 +13,7 @@ let imageOption = {};
 
 let observer = new IntersectionObserver((val, observer) => {
     val.forEach((entry) => {
+        console.log(entry);
         if(!entry.isIntersecting) return;
         const image = entry.target
         const imgSrc = image.getAttribute("src");
