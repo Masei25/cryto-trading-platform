@@ -26,3 +26,18 @@ images.forEach((image) => {
 });
 
  
+//slider
+// let slideBanner = document.querySelectorAll(".slides");
+// let currentBanner = 0;
+
+// function reset() {
+//     for(let i = 0; i<slideBanner.length; i++) {
+//         slideBanner[i].style.display = "block";
+//     }
+// }
+
+// function startSlide(){
+//     reset();
+//     sliderBanner[currentBanner].style.display = "block"; 
+// }
+// startSlide();
