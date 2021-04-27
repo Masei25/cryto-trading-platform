@@ -4,9 +4,9 @@ var myNav = document.getElementById("nav");
 window.onscroll = function () {
 "use strict";
     if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
-        myNav.classList.add("bg-white", "opacity-90");
+        myNav.classList.add("bg-blue-900", "opacity-90");
     } else {
-        myNav.classList.remove("bg-white", "opacity-90");
+        myNav.classList.remove("bg-blue-900", "opacity-90");
     }
 };
 
